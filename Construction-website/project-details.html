@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Rendelco</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="details-page">
+    <header class="header header-solid">
+        <div class="header-inner">
+            <a href="Index.html" class="brand brand-dark">Rendelco</a>
+            <a href="Index.html#projects" class="back-link">← Back to Projects</a>
+        </div>
+    </header>
+
+    <main class="details-main project-details-main">
+        <div class="details-inner">
+            <div id="project-1" class="project-detail-panel" data-project="project-1">
+                <div class="project-detail-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80" alt="Riverside Residences">
+                </div>
+                <h1 class="detail-title">Riverside Residences</h1>
+                <p class="detail-lead">Residential • Completed 2023</p>
+                <p>New-build residential development with 24 units, modern finishes, and landscaped common areas. Delivered on schedule with full compliance and handover documentation.</p>
+            </div>
+
+            <div id="project-2" class="project-detail-panel" data-project="project-2">
+                <div class="project-detail-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Northgate Commercial">
+                </div>
+                <h1 class="detail-title">Northgate Commercial</h1>
+                <p class="detail-lead">Commercial • Completed 2024</p>
+                <p>Office and retail mixed-use build with basement parking and full MEP fit-out. Client-focused programme management and phased handover.</p>
+            </div>
+
+            <div id="project-3" class="project-detail-panel" data-project="project-3">
+                <div class="project-detail-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Heritage Renovation">
+                </div>
+                <h1 class="detail-title">Heritage Renovation</h1>
+                <p class="detail-lead">Renovation • Completed 2023</p>
+                <p>Full renovation of a listed building: structural repairs, new services, and sensitive restoration of period features. Work carried out with heritage consent.</p>
+            </div>
+
+            <div id="project-4" class="project-detail-panel" data-project="project-4">
+                <div class="project-detail-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Lakeside Villa">
+                </div>
+                <h1 class="detail-title">Lakeside Villa</h1>
+                <p class="detail-lead">Residential • Completed 2024</p>
+                <p>Custom single-family home with high-spec finishes, smart systems, and landscaped grounds. From design support to key handover.</p>
+            </div>
+
+            <div id="project-5" class="project-detail-panel" data-project="project-5">
+                <div class="project-detail-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Central Office Tower">
+                </div>
+                <h1 class="detail-title">Central Office Tower</h1>
+                <p class="detail-lead">Commercial • Completed 2024</p>
+                <p>Multi-floor office fit-out with raised floors, HVAC, and IT infrastructure. Delivered in phases to allow early occupancy.</p>
+            </div>
+
+            <div id="project-6" class="project-detail-panel" data-project="project-6">
+                <div class="project-detail-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Eastside Extension">
+                </div>
+                <h1 class="detail-title">Eastside Extension</h1>
+                <p class="detail-lead">Residential Extension • Completed 2023</p>
+                <p>Two-storey rear extension and internal reconfiguration. New kitchen-diner, utility, and bedroom with en-suite. Minimal disruption to existing occupancy.</p>
+            </div>
+
+            <div id="project-none" class="project-detail-panel project-detail-panel-default">
+                <p class="detail-default-msg">Select a project from the main site to view details, or <a href="Index.html#projects">go back to Projects</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var panels = document.querySelectorAll('.project-detail-panel');
+            var defaultPanel = document.getElementById('project-none');
+            var validIds = ['project-1', 'project-2', 'project-3', 'project-4', 'project-5', 'project-6'];
+
+            function showPanel(id) {
+                panels.forEach(function (p) {
+                    p.classList.remove('detail-panel-visible');
+                    p.setAttribute('aria-hidden', 'true');
+                });
+                var target = document.getElementById(id);
+                if (target && validIds.indexOf(id) !== -1) {
+                    target.classList.add('detail-panel-visible');
+                    target.setAttribute('aria-hidden', 'false');
+                } else {
+                    defaultPanel.classList.add('detail-panel-visible');
+                    defaultPanel.setAttribute('aria-hidden', 'false');
+                }
+            }
+
+            function readHash() {
+                var hash = (window.location.hash || '').replace('#', '');
+                showPanel(hash || 'project-none');
+            }
+
+            window.addEventListener('load', readHash);
+            window.addEventListener('hashchange', readHash);
+        })();
+    </script>
+</body>
+</html>
