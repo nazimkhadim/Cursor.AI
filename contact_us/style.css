@@ -1,0 +1,74 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Banner */
+.contact-banner {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.contact-banner h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+/* Contact Info */
+.contact-info {
+    max-width: 400px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 400px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 12px;
+    border: none;
+    background: #f4b400;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact-form button:hover {
+    background: #d99c00;
+}
+
+/* Map Section */
+.map {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.map h2 {
+    margin-bottom: 20px;
+}
