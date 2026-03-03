@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - Rendelco</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="details-page">
+    <header class="header header-solid">
+        <div class="header-inner">
+            <a href="Index.html" class="brand brand-dark">Rendelco</a>
+            <a href="Index.html#services" class="back-link">← Back to Services</a>
+        </div>
+    </header>
+
+    <main class="details-main">
+        <div class="details-inner">
+            <div id="residential" class="detail-panel" data-service="residential">
+                <h1 class="detail-title">Residential Construction</h1>
+                <p class="detail-lead">New builds, custom homes, and residential extensions delivered to the highest standards with full transparency and fixed timelines.</p>
+                <h2>What We Offer</h2>
+                <ul class="detail-list">
+                    <li>New single-family and multi-unit residential builds</li>
+                    <li>Custom home design and build from concept to handover</li>
+                    <li>Extensions, basements, and loft conversions</li>
+                    <li>Fixed-price and cost-plus options with clear documentation</li>
+                </ul>
+                <h2>Our Process</h2>
+                <p>We start with a detailed consultation and site assessment, then provide a structured timeline and milestone schedule. Regular updates and a single point of contact keep you informed from foundation to finishing.</p>
+                <h2>Quality & Assurance</h2>
+                <p>All work is carried out by our licensed teams with certified engineers where required. We provide warranties on workmanship and use only approved materials with full documentation.</p>
+                <div class="confidential-box">
+                    <strong>Confidentiality</strong> — Your plans, personal information, and property details are kept strictly confidential. We do not share or reuse your data for any other purpose and comply with applicable privacy standards.
+                </div>
+            </div>
+
+            <div id="commercial" class="detail-panel" data-service="commercial">
+                <h1 class="detail-title">Commercial Construction</h1>
+                <p class="detail-lead">Offices, retail, and industrial projects delivered on schedule with full compliance, clear reporting, and a professional project management team.</p>
+                <h2>Scope of Work</h2>
+                <ul class="detail-list">
+                    <li>Office fit-outs and new office builds</li>
+                    <li>Retail units, showrooms, and commercial interiors</li>
+                    <li>Industrial and warehouse construction</li>
+                    <li>Mixed-use and multi-tenant developments</li>
+                </ul>
+                <h2>Our Approach</h2>
+                <p>We work to your programme and budget with clear change-order and approval processes. All work is documented for compliance and handover, with as-built and O&M support where needed.</p>
+                <h2>Compliance & Permits</h2>
+                <p>We handle permits, inspections, and regulatory requirements as part of our service. Our team is experienced in building codes and health & safety standards for commercial projects.</p>
+                <div class="confidential-box">
+                    <strong>Confidentiality</strong> — Commercial plans, financial arrangements, and any proprietary information are handled in strict confidence under our standard terms. We do not disclose client or project details to third parties.
+                </div>
+            </div>
+
+            <div id="renovation" class="detail-panel" data-service="renovation">
+                <h1 class="detail-title">Renovation</h1>
+                <p class="detail-lead">Structural upgrades, extensions, and full refurbishment carried out with minimal disruption and clear phasing so you know what to expect at every stage.</p>
+                <h2>What We Cover</h2>
+                <ul class="detail-list">
+                    <li>Structural repairs, underpinning, and load-bearing changes</li>
+                    <li>Extensions and annexes</li>
+                    <li>Full or phased refurbishment (residential and commercial)</li>
+                    <li>Heritage and listed building works where applicable</li>
+                </ul>
+                <h2>How We Work</h2>
+                <p>We provide a scope document and timeline before work starts. Disruption is minimised with clear site rules and, where possible, phased access. All work is insured and guaranteed as per our terms.</p>
+                <h2>Warranties</h2>
+                <p>Renovation work comes with our standard workmanship warranty. Structural and specialist work is backed by relevant certifications and manufacturer warranties where applicable.</p>
+                <div class="confidential-box">
+                    <strong>Confidentiality</strong> — Your property, designs, and any sensitive information related to the renovation are treated as confidential. We do not use your project for marketing or reference without your written consent.
+                </div>
+            </div>
+
+            <div id="interior" class="detail-panel" data-service="interior">
+                <h1 class="detail-title">Interior Design</h1>
+                <p class="detail-lead">Cohesive interiors, material selection, and finish specifications aligned with your vision and our construction standards for a seamless result.</p>
+                <h2>What We Provide</h2>
+                <ul class="detail-list">
+                    <li>Material and finish selection (flooring, walls, ceilings, joinery)</li>
+                    <li>Layout and space planning for functionality and flow</li>
+                    <li>Lighting and MEP coordination where we are on the project</li>
+                    <li>Furniture and fixture specifications and procurement support</li>
+                </ul>
+                <h2>Process</h2>
+                <p>We work from your brief and existing architecture (or our own build) to propose palettes, samples, and layouts. Revisions are documented so the final design is clear before implementation.</p>
+                <h2>Integration With Build</h2>
+                <p>When we handle both construction and interiors, scheduling and quality are coordinated under one team, reducing gaps and ensuring finishes are installed to the same standards.</p>
+                <div class="confidential-box">
+                    <strong>Confidentiality</strong> — Your design preferences, property information, and any personal or commercial details are kept confidential. We do not share or publish your project without explicit permission.
+                </div>
+            </div>
+
+            <div id="no-service" class="detail-panel detail-panel-default">
+                <p class="detail-default-msg">Select a service from the main site to view details here, or <a href="Index.html#services">go back to Services</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var panels = document.querySelectorAll('.detail-panel');
+            var defaultPanel = document.getElementById('no-service');
+            var validIds = ['residential', 'commercial', 'renovation', 'interior'];
+
+            function showPanel(id) {
+                panels.forEach(function (p) {
+                    p.classList.remove('detail-panel-visible');
+                    p.setAttribute('aria-hidden', 'true');
+                });
+                var target = document.getElementById(id);
+                if (target && validIds.indexOf(id) !== -1) {
+                    target.classList.add('detail-panel-visible');
+                    target.setAttribute('aria-hidden', 'false');
+                } else {
+                    defaultPanel.classList.add('detail-panel-visible');
+                    defaultPanel.setAttribute('aria-hidden', 'false');
+                }
+            }
+
+            function readHash() {
+                var hash = (window.location.hash || '').replace('#', '');
+                showPanel(hash || 'no-service');
+            }
+
+            window.addEventListener('load', readHash);
+            window.addEventListener('hashchange', readHash);
+        })();
+    </script>
+</body>
+</html>
