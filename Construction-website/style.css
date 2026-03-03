@@ -215,40 +215,201 @@ ul {
     visibility: visible;
 }
 
-/* ===== HERO (placeholder so header has content behind to blur) ===== */
+/* ===== HERO – full-width construction banner ===== */
 .hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 35%, #3d7ab5 70%, #5a9ad4 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 12s ease infinite;
+    background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.55) 100%);
+    pointer-events: none;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 1;
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .hero-content h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    letter-spacing: 0.08em;
+    font-size: clamp(2.5rem, 7vw, 4.25rem);
+    letter-spacing: 0.06em;
     color: #fff;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero-desc {
+    font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-align: center;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: #c9a227;
+    color: #1a1a1a;
+    border: 2px solid #c9a227;
+}
+
+.btn-primary:hover {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #1a1a1a;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* ===== INTRO SECTION – company intro + highlight boxes ===== */
+.intro-section {
+    padding: 3.5rem 1.5rem;
+    background: #f5f5f5;
+}
+
+.intro-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 2.25rem;
+}
+
+.intro-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    letter-spacing: 0.06em;
+    color: #1a1a1a;
     margin-bottom: 0.75rem;
 }
 
-.hero-content p {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 400;
+.intro-para {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+}
+
+.intro-years {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.intro-years strong {
+    color: #1a1a1a;
+}
+
+.intro-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.highlight-box {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #c9a227;
+    color: #1a1a1a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+.highlight-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+@media (min-width: 600px) {
+    .intro-highlights {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .highlight-box {
+        padding: 1.15rem 1.25rem;
+    }
+
+    .highlight-text {
+        font-size: 1rem;
+    }
 }
 
 /* ===== TABLET AND UP - SHOW DESKTOP NAV, HIDE HAMBURGER ===== */
